@@ -3,14 +3,16 @@ using System;
 using Data.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace InvestigacionWebApiDemo.Migrations
 {
     [DbContext(typeof(SecurityDbContext))]
-    partial class SecurityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210713203834_Nueva_Tabla_TienePermisos")]
+    partial class Nueva_Tabla_TienePermisos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

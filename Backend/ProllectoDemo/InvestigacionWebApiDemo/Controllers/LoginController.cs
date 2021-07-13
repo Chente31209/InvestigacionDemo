@@ -6,6 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTO;
 using Bisnes.Security.Contract.InterfaceBines;
+using AutoMapper;
+using InvestigacionWebApiDemo.Models;
+using Microsoft.Extensions.Logging;
+using InvestigacionWebApiDemo.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace InvestigacionWebApiDemo.Controllers
 {
@@ -13,32 +18,73 @@ namespace InvestigacionWebApiDemo.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        private ILogin _login;
-        public LoginController(ILogin login)
+        private readonly ILogin _login;
+        private readonly IMapper _mpper;
+        private readonly ILogger<LoginController> _logger;
+        private readonly IJwtAuthenticationService _authService;
+
+        public LoginController(ILogger<LoginController> logger, IJwtAuthenticationService authService,ILogin login, IMapper mapper)
         {
             this._login = login;
+            this._mpper = mapper;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _authService = authService;
         }
+        [AllowAnonymous]
+        [HttpGet]
+        public object Get()
+        {
+            var responseObject = new { Status = "Running" };
+            _logger.LogInformation($"Status: {responseObject.Status}");
+
+            return responseObject;
+        }
+        [AllowAnonymous]
         [HttpPost]
         [Route("Login")]
-        public IEnumerable<AcsesoDto> Logiin()
+        public IActionResult  Logiin(Usuario usuario)
         {
-            List<AcsesoDto> dtos = new List<AcsesoDto> { };
-            foreach (var i in _login.Get())
+            var list = _login.Get();
+            bool result = false;
+            foreach (var i in list)
             {
-                dtos.Add(new AcsesoDto { Id = i.Id, NombreDeUsario = i.NombreDeUsario, Pasword = i.Pasword, Usuario = null });
+                if (i.NombreDeUsario == usuario.NombreDeUsarioOEmail)
+                {
+                    if (i.Pasword == usuario.Password)
+                    {
+                        result= true;
+                        break;
+                        
+                    }
+                    else
+                    {
+                        result = false;
+                        break;
+                    }
+                }
+                else
+                {
+                    result = false;
+                }
             }
-            return dtos;
+
+            var token = _authService.Authenticate(result,usuario);
+
+            if (token == null)
+            {
+                return Unauthorized("El Usario O el Pasword No Es Corecto");
+            }
+
+            return Ok(token);
+
         }
         [HttpGet]
         [Route("action")]
-        public IEnumerable<AcsesoDto> Get()
+        public IEnumerable<AcsesoDto> GetUser()
         {
-            List<AcsesoDto> dtos = new List<AcsesoDto> { };
-            foreach (var i in _login.Get())
-            {
-                dtos.Add(new AcsesoDto { Id = i.Id, NombreDeUsario = i.NombreDeUsario, Pasword = i.Pasword, Usuario = null });
-            }
-            return dtos;
+            var list = _login.Get();
+            foreach (var i in list)
+                yield return _mpper.Map<AcsesoDto>(i);
         }
 
     }

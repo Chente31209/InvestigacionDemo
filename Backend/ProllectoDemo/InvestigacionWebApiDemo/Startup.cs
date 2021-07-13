@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Bisnes.Security;
 using Bisnes.Security.Contract.InterfaceBines;
 using Data.Security;
 using Data.Security.Contract.InterfacesDataLaibery;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -14,8 +16,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Pomelo.EntityFrameworkCore.MySql;
+using InvestigacionWebApiDemo.Services;
 
 namespace InvestigacionWebApiDemo
 {
@@ -31,10 +35,37 @@ namespace InvestigacionWebApiDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var key = "This is the demo key";
+            services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.IgnoreNullValues = true;
+                    options.JsonSerializerOptions.WriteIndented = true;
+                });
+            services
+                .AddAuthentication(x =>
+                {
+                    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(x =>
+                {
+                    x.RequireHttpsMetadata = false;
+                    x.SaveToken = true;
+                    x.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key)),
+                        ValidateAudience = false,
+                        ValidateIssuerSigningKey = true,
+                        ValidateIssuer = false
+                    };
+                });
+            services.AddAuthorization();
+
             string strConetUsers = "server=localhost;port=3306;database=seguridad;user=root;password=osoosa123";
 
-            
-            
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -50,6 +81,9 @@ namespace InvestigacionWebApiDemo
 
             //Seguridad Bisnes
             services.AddScoped<ILogin, Login>();
+
+            //Servicios 
+            services.AddSingleton<IJwtAuthenticationService>(new JwtAuthenticationService(key));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
