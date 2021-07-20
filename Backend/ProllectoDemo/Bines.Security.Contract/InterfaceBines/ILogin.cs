@@ -9,6 +9,6 @@ namespace Bisnes.Security.Contract.InterfaceBines
 {
     public interface ILogin
     {
-        public ICollection<Acseso> Get();
+        public IEnumerable<Acseso> Get();
     }
 }

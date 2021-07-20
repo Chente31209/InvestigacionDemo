@@ -12,6 +12,7 @@ namespace Bisnes.Security.Contract.Models
         public string Nombre { get; set; }
         public string Giro { get; set; }
         public string Decripcion { get; set; }
+        public string ClaveInvitacion { get; set; }
         public TipoDeOraganisacion Id_tipoDeOraganisacion { get; set; }
     }
 }

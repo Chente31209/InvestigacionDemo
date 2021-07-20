@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Bisnes.Security.Contract.InterfaceBines;
 using Bisnes.Security.Contract.Models;
 using Data.Security.Contract.InterfacesDataLaibery;
@@ -12,20 +13,20 @@ namespace Bisnes.Security
     public class Login : ILogin
     {
         private ILoginAhut _loginAhut;
-        public Login(ILoginAhut loginAhut)
+        private  IMapper _mpper;
+
+        public Login(ILoginAhut loginAhut, IMapper mpper)
         {
             this._loginAhut = loginAhut;
+            this._mpper = mpper;
         }
 
 
-        public ICollection<Acseso> Get()
+        public IEnumerable<Acseso> Get()
         {
-            List<Acseso> Lista = new List<Acseso>();
-            foreach (var i in _loginAhut.Get())
-            {
-                Lista.Add(new Acseso { Id = i.Id, NombreDeUsario = i.NombreDeUsario, Pasword = i.Pasword, Usuario = null }); 
-            }
-            return Lista;
+            var Lista = _loginAhut.Get();
+            foreach(var i in Lista)
+                yield return _mpper.Map<Acseso>(i);
         }
     }
 }

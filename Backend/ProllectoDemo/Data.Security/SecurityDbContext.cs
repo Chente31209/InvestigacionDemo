@@ -14,5 +14,6 @@ namespace Data.Security
         public DbSet<TipoDeCuentaEntity> TiposDeCuentas { get; set; }
         public DbSet<TipoDeOraganisacionEntity> TiposDeOraganisaciones{ get; set; }
         public DbSet<UsuarioEntity> Usuarios { get; set; }
+        public DbSet<TienePermiosoEntity> TienePermioso { get; set; }
     }
 }

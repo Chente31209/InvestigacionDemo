@@ -12,7 +12,14 @@ namespace Data.Security
         public LoginAhut(SecurityDbContext db): base(db) { }
         public ICollection<AcsesoEntity> Get()
         {
-            return db.Acsesos.ToList();
+            var p = db.Acsesos.ToList();
+            var U = db.Usuarios.ToList();
+            var O = db.TiposDeCuentas.ToList();
+            var q = db.Organisaciones.ToList();
+            var w = db.Permisos.ToList();
+            var Or = db.TiposDeOraganisaciones.ToList();
+        
+            return p;
         }
     }
 }

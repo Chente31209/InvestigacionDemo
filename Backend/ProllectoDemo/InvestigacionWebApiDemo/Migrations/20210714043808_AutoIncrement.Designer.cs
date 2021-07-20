@@ -3,14 +3,16 @@ using System;
 using Data.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace InvestigacionWebApiDemo.Migrations
 {
     [DbContext(typeof(SecurityDbContext))]
-    partial class SecurityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210714043808_AutoIncrement")]
+    partial class AutoIncrement
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,9 +46,6 @@ namespace InvestigacionWebApiDemo.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    b.Property<string>("ClaveInvitacion")
-                        .HasColumnType("longtext");
 
                     b.Property<string>("Decripcion")
                         .HasColumnType("longtext");
@@ -154,8 +153,8 @@ namespace InvestigacionWebApiDemo.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("NumeroDeTelefono")
-                        .HasColumnType("longtext");
+                    b.Property<int>("NumeroDeTelefono")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

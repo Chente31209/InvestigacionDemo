@@ -8,13 +8,11 @@ using System.Threading.Tasks;
 
 namespace Data.Security.Contract.Entities
 {
-    public class TipoDeCuentaEntity
+    public class TienePermiosoEntity
     {
-        
-        public int Id { get; set; }
-        public string RolUsario { get; set; }
        
-
-
+        public int Id { get; set; } 
+        public TipoDeCuentaEntity Id_tipoDeCuenta { get; set; }
+        public PermisosEntity Id_permisos { get; set; }
     }
 }

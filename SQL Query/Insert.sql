@@ -7,3 +7,5 @@ values(1,'Vcente Eduardo Martines Morales','chente31209@hotmail.com',1526,991027
 
 insert into acsesos(Id,NombreDeUsario,Pasword,UsuarioId) 
 values(1,'Chente31209','Osoosa123',1);
+
+INSERT INTO `seguridad`.`tiposdecuentas` (`Id`, `RolUsario`) VALUES ('1', 'Root');

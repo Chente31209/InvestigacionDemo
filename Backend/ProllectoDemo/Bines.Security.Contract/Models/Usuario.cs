@@ -11,8 +11,9 @@ namespace Bisnes.Security.Contract.Models
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string E_Mail { get; set; }
-        public int NumeroDeTelefono { get; set; }
+        public string NumeroDeTelefono { get; set; }
         public DateTime FecaDeNacimento { get; set; }
         public Organisacion Id_organisacion { get; set; }
+        public TipoDeCuenta  Id_tipoDeCuenta { get; set; }
     }
 }

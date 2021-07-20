@@ -10,7 +10,7 @@ namespace Bisnes.Security.Contract.Models
     {
         public int Id { get; set; }
         public string RolUsario { get; set; }
-        public Usuario Usuario { get; set; }
+        
 
     }
 }

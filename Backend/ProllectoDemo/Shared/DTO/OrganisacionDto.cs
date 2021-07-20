@@ -12,6 +12,7 @@ namespace Shared.DTO
         public string Nombre { get; set; }
         public string Giro { get; set; }
         public string Decripcion { get; set; }
+        public string ClaveInvitacion { get; set; }
         public TipoDeOraganisacionDto Id_tipoDeOraganisacion { get; set; }
     }
 }

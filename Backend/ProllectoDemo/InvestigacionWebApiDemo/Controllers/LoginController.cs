@@ -30,7 +30,7 @@ namespace InvestigacionWebApiDemo.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _authService = authService;
         }
-        [AllowAnonymous]
+        /*[AllowAnonymous]
         [HttpGet]
         public object Get()
         {
@@ -38,7 +38,7 @@ namespace InvestigacionWebApiDemo.Controllers
             _logger.LogInformation($"Status: {responseObject.Status}");
 
             return responseObject;
-        }
+        }*/
         [AllowAnonymous]
         [HttpPost]
         [Route("Login")]
@@ -78,8 +78,10 @@ namespace InvestigacionWebApiDemo.Controllers
             return Ok(token);
 
         }
+        
+        //mantener porvicional mente Para Consultas 
         [HttpGet]
-        [Route("action")]
+        [Route("[action]")]
         public IEnumerable<AcsesoDto> GetUser()
         {
             var list = _login.Get();

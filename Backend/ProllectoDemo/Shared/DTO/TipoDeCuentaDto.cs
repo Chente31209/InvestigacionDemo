@@ -10,7 +10,7 @@ namespace Shared.DTO
     {
         public int Id { get; set; }
         public string RolUsario { get; set; }
-        public UsuarioDto Usuario { get; set; }
+       
 
     }
 }

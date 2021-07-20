@@ -20,6 +20,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Pomelo.EntityFrameworkCore.MySql;
 using InvestigacionWebApiDemo.Services;
+using Bines.Security.Contract.InterfaceBines;
 
 namespace InvestigacionWebApiDemo
 {
@@ -78,9 +79,11 @@ namespace InvestigacionWebApiDemo
                 );
             //Seguridad Data
             services.AddScoped<ILoginAhut, LoginAhut>();
+            services.AddScoped<ILogUP, LogUp>();
 
             //Seguridad Bisnes
             services.AddScoped<ILogin, Login>();
+            services.AddScoped<ILogUPNewUser, LogUpNewUsuario>();
 
             //Servicios 
             services.AddSingleton<IJwtAuthenticationService>(new JwtAuthenticationService(key));
