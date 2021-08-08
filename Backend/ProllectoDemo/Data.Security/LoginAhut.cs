@@ -18,6 +18,7 @@ namespace Data.Security
             var q = db.Organisaciones.ToList();
             var w = db.Permisos.ToList();
             var Or = db.TiposDeOraganisaciones.ToList();
+            
         
             return p;
         }
