@@ -26,6 +26,7 @@ namespace InvestigacionWebApiDemo
 {
     public class Startup
     {
+        private readonly string LocalPolicy = "LocalPolicy";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -36,6 +37,14 @@ namespace InvestigacionWebApiDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: LocalPolicy,
+                    bulder => {
+                        bulder.WithOrigins("http://localhost:8080")
+                            .AllowAnyMethod().AllowAnyHeader();
+                    });
+            });
             var key = "This is the demo key";
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddControllers()
@@ -71,6 +80,26 @@ namespace InvestigacionWebApiDemo
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "InvestigacionWebApiDemo", Version = "v1" });
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Please insert JWT with Bearer into field",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                   {
+                     new OpenApiSecurityScheme
+                     {
+                       Reference = new OpenApiReference
+                       {
+                         Type = ReferenceType.SecurityScheme,
+                         Id = "Bearer"
+                       }
+                      },
+                      new string[] { }
+                    }
+                  });
             });
 
             services.AddDbContext<SecurityDbContext>(option =>
@@ -80,10 +109,12 @@ namespace InvestigacionWebApiDemo
             //Seguridad Data
             services.AddScoped<ILoginAhut, LoginAhut>();
             services.AddScoped<ILogUP, LogUp>();
+            services.AddScoped<IUsusario, PerfilesUsuarios>();
 
             //Seguridad Bisnes
             services.AddScoped<ILogin, Login>();
             services.AddScoped<ILogUPNewUser, LogUpNewUsuario>();
+            services.AddScoped<IUsuarioBisnes, UsariosYPermisoso> ();
 
             //Servicios 
             services.AddSingleton<IJwtAuthenticationService>(new JwtAuthenticationService(key));
@@ -100,6 +131,7 @@ namespace InvestigacionWebApiDemo
             }
 
             app.UseRouting();
+            app.UseCors(LocalPolicy);
 
             app.UseAuthorization();
 

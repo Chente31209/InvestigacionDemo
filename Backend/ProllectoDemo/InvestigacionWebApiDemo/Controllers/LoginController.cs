@@ -41,7 +41,7 @@ namespace InvestigacionWebApiDemo.Controllers
         }*/
         [AllowAnonymous]
         [HttpPost]
-        [Route("Login")]
+       // [Route("[action]")]
         public IActionResult  Logiin(Usuario usuario)
         {
             var list = _login.Get();
