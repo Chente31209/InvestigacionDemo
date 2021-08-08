@@ -16,5 +16,8 @@ export default {
   login(nombreDeUsarioOEmail, password) {
     const user = { nombreDeUsarioOEmail, password };
     return axios.post(ENDPOINT_PATH + "login", user);
+  },
+  deleteUserLogged() {
+    Cookies.remove('userLogged');
   }
 };

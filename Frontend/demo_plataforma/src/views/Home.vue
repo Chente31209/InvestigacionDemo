@@ -2,7 +2,10 @@
 <h1>
   Pagaina de prestecion 
 </h1>
-<p v-if="userLogged">User loggued: {{userLogged}}</p>
+  <div v-if="userLogged">
+    <p >User loggued: {{userLogged}}</p>
+  </div>
+
 </template>
 
 <script>

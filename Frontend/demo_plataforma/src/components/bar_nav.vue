@@ -11,9 +11,35 @@
                 <li>
                     <a href="#">Acerca de mi</a>
                 </li>
+                <li v-if="userLogged">
+                    <button @click="logout"
+                    class="
+                bg-blue-500
+                hover:bg-blue-dark
+                text-white
+                font-bold
+                py-2
+                px-4
+                rounded
+              "
+              >Salir</button>
+                </li>
             </ul>
     </nav>
 </template>
 <script>
-
+import auth from "../logic/ahout";
+export default {
+  computed: {
+    userLogged() {
+      return auth.getUserLogged();
+    }
+  },
+  methods:{
+      logout(){
+          auth.deleteUserLogged();
+          location.reload();
+      }
+  }
+};
 </script>
