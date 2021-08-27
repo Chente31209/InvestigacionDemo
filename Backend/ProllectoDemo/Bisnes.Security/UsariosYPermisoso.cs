@@ -30,14 +30,20 @@ namespace Bisnes.Security
             return usuarios;
         }
 
-        public List<Claim> GetClames()
+        public List<Claim> GetClames(string Nombre)
         {
             List<Claim> Clames = new List<Claim> { };
-            var list = ususario.GetUsuario();
             var list_Permisos = ususario.GetPermisos();
             var list_Tiene_Permisos = ususario.GetTienePermiosos();
-            var list_tipo_de_uentas = ususario.GetTipoDeCuentas();
+            var list_Acseso = ususario.GetAcsesoEntities();
 
+            var Acseo = list_Acseso.Where(x => x.NombreDeUsario == Nombre).FirstOrDefault().Usuario.Id_tipoDeCuenta.Id;
+            var permisos = list_Tiene_Permisos.Where(x => x.Id_tipoDeCuenta.Id == Acseo).ToList();
+            Clames.Add(new Claim(ClaimTypes.Name, Nombre));
+            foreach (var i in permisos)
+            {
+                Clames.Add(new Claim(i.Id_permisos.Decripcion, i.Id_permisos.Tipo));
+            }
             return Clames;
         }
     }

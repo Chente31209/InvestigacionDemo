@@ -19,9 +19,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bines.Security.Contract\Bines.Security.Contract.csproj" />
+    <ProjectReference Include="..\Bisnes.Contract\Bisnes.Contract.csproj" />
     <ProjectReference Include="..\Bisnes.Security\Bisnes.Security.csproj" />
+    <ProjectReference Include="..\Bisnes\BisnesLaybery.csproj" />
+    <ProjectReference Include="..\Data.Contract\Data.Contract.csproj" />
     <ProjectReference Include="..\Data.Security.Contract\Data.Security.Contract.csproj" />
     <ProjectReference Include="..\Data.Security\Data.Security.csproj" />
+    <ProjectReference Include="..\Data\DataLaybery.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 

@@ -11,6 +11,7 @@ using InvestigacionWebApiDemo.Models;
 using Microsoft.Extensions.Logging;
 using InvestigacionWebApiDemo.Services;
 using Microsoft.AspNetCore.Authorization;
+using Bines.Security.Contract.InterfaceBines;
 
 namespace InvestigacionWebApiDemo.Controllers
 {
@@ -22,13 +23,15 @@ namespace InvestigacionWebApiDemo.Controllers
         private readonly IMapper _mpper;
         private readonly ILogger<LoginController> _logger;
         private readonly IJwtAuthenticationService _authService;
+        private readonly IUsuarioBisnes _usuarioBisnes;
 
-        public LoginController(ILogger<LoginController> logger, IJwtAuthenticationService authService,ILogin login, IMapper mapper)
+        public LoginController(ILogger<LoginController> logger, IJwtAuthenticationService authService,ILogin login, IMapper mapper, IUsuarioBisnes usuarioBisnes)
         {
             this._login = login;
             this._mpper = mapper;
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _authService = authService;
+            this._usuarioBisnes = usuarioBisnes;
         }
         /*[AllowAnonymous]
         [HttpGet]
@@ -68,7 +71,7 @@ namespace InvestigacionWebApiDemo.Controllers
                 }
             }
 
-            var token = _authService.Authenticate(result,usuario);
+            var token = _authService.Authenticate(result,usuario,_usuarioBisnes.GetClames(usuario.NombreDeUsarioOEmail));
 
             if (token == null)
             {
