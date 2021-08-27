@@ -92,11 +92,8 @@ export default {
   methods: {
     async login() {
   try {
-    await ahout.login(this.nombreDeUsarioOEmail, this.password);
-    const user = {
-      nombreDeUsarioOEmail: this.nombreDeUsarioOEmail
-    };
-    ahout.setUserLogged(user);
+    const user = await ahout.login(this.nombreDeUsarioOEmail, this.password)
+    ahout.setUserLogged(user.data);
     this.$router.push("/");
   } catch (error) {
     console.log(error);

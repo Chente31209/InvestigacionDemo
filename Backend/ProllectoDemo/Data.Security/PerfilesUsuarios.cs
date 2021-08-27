@@ -11,6 +11,12 @@ namespace Data.Security
     public class PerfilesUsuarios : BaseDB, IUsusario
     {
         public PerfilesUsuarios(SecurityDbContext db) : base(db) { }
+
+        public List<AcsesoEntity> GetAcsesoEntities()
+        {
+            return db.Acsesos.ToList();
+        }
+
         public List<PermisosEntity> GetPermisos()
         {
             return db.Permisos.ToList();
