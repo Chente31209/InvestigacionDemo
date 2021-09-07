@@ -21,13 +21,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bines.Security.Contract", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{35441CA1-068E-47D3-8837-470CB1E60307}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Contract", "Data.Contract\Data.Contract.csproj", "{E093E223-9DD2-441C-BFDB-F35FF67DD360}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Contract", "Data.Contract\Data.Contract.csproj", "{E093E223-9DD2-441C-BFDB-F35FF67DD360}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLaybery", "Data\DataLaybery.csproj", "{569BA836-6198-43DD-99F0-AB28B09BA429}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{569BA836-6198-43DD-99F0-AB28B09BA429}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BisnesLaybery", "Bisnes\BisnesLaybery.csproj", "{58082825-1C20-4209-89BF-EC65F3B27E2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BisnesLaybery", "Bisnes\BisnesLaybery.csproj", "{58082825-1C20-4209-89BF-EC65F3B27E2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bisnes.Contract", "Bisnes.Contract\Bisnes.Contract.csproj", "{66B155A1-395C-4817-9F41-EF17115FDF0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bisnes.Contract", "Bisnes.Contract\Bisnes.Contract.csproj", "{66B155A1-395C-4817-9F41-EF17115FDF0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
