@@ -13,5 +13,6 @@ namespace Data.Security.Contract.InterfacesDataLaibery
         public List<PermisosEntity> GetPermisos();
         public List<TienePermiosoEntity> GetTienePermiosos();
         public List<TipoDeCuentaEntity> GetTipoDeCuentas();
+        public List<AcsesoEntity> GetAcsesoEntities();
     }
 }

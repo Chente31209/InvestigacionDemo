@@ -21,6 +21,9 @@ using Microsoft.OpenApi.Models;
 using Pomelo.EntityFrameworkCore.MySql;
 using InvestigacionWebApiDemo.Services;
 using Bines.Security.Contract.InterfaceBines;
+using Data;
+using Data.Contract;
+using Microsoft.Extensions.Options;
 
 namespace InvestigacionWebApiDemo
 {
@@ -118,6 +121,14 @@ namespace InvestigacionWebApiDemo
 
             //Servicios 
             services.AddSingleton<IJwtAuthenticationService>(new JwtAuthenticationService(key));
+
+            // requires using Microsoft.Extensions.Options
+            services.Configure<BookstoreDatabaseSettings>(
+                Configuration.GetSection(nameof(BookstoreDatabaseSettings)));
+
+            services.AddSingleton<IBookstoreDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<BookstoreDatabaseSettings>>().Value);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

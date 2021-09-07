@@ -11,6 +11,6 @@ namespace Bines.Security.Contract.InterfaceBines
     public interface IUsuarioBisnes
     {
         public List<Usuario> Get();
-        public List<Claim> GetClames();
+        public List<Claim> GetClames(string Nombre);
     }
 }
