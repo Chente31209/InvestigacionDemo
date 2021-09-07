@@ -73,7 +73,7 @@ namespace InvestigacionWebApiDemo
                 });
             services.AddAuthorization();
 
-            string strConetUsers = "server=localhost;port=3306;database=seguridad;user=root;password=osoosa123";
+            string strConetUsers = "server=localhost;port=3306;database=seguridad;user=root;password=pertenencia1.";
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
