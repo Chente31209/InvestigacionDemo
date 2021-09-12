@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DemoWebApi
+namespace DemoWebApiV1
 {
     public class Startup
     {
@@ -29,7 +29,7 @@ namespace DemoWebApi
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DemoWebApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DemoWebApiV1", Version = "v1" });
             });
         }
 
@@ -40,7 +40,7 @@ namespace DemoWebApi
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DemoWebApi v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DemoWebApiV1 v1"));
             }
 
             app.UseRouting();
