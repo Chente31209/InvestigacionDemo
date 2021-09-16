@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared.DTO
+namespace Data.Contract.Entities
 {
-    public class AutorDto
+    public class Tipo_DocuemntoEntity
     {
         public int id { get; set; }
-        public string Nombre { get;set;}
-
+        public string Nombre { get; set; }
     }
 }

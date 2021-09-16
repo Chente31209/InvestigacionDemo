@@ -2,7 +2,7 @@
 
 namespace Data.Contract
 {
-    public class Class1
+    public interface Class1
     {
     }
 }

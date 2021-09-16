@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Autenticacion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace DemoWebApiV1.Controllers
     public class LoginController : ControllerBase
     {
         [HttpPost]
-        public IActionResult Login()
+        public IActionResult Login(Usuario usuario)
         {
-            return Ok();
+            return Ok(usuario.NombreDeUsuario);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shared.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace DemoWebApiV1.Controllers
     public class PerfilesController : ControllerBase
     {
         [HttpGet]
-        public IActionResult Get()
+        public List<UsuarioDto> Get()
         {
-            return Ok();
+            return DataDumi.Perfiles();
         }
     }
 }
