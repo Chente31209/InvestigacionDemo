@@ -1,5 +1,5 @@
 <template>
-    <form>
+    <form @submit.prevent="login">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -16,3 +16,26 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </template>
+
+<script>
+import ahout from "../logic/ahout";
+export default {
+  data: () => ({
+    nombreDeUsuario: "",
+    password: "",
+    error: false,
+  }),
+  methods: {
+    async login() {
+  try {
+    const user = await ahout.login(this.nombreDeUsuario, this.password)
+    ahout.setUserLogged(user.data);
+    this.$router.push("/");
+  } catch (error) {
+    console.log(error);
+    this.error = true;
+  }
+}
+  },
+};
+</script>

@@ -23,11 +23,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business.Contract", "Busine
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Laiberis", "Laiberis", "{E285251B-3DC1-4E9C-B2D9-2C296B9500BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoritmosLibrary", "AlgoritmosLibrary\AlgoritmosLibrary.csproj", "{8CEE65CE-AF07-4752-A8A9-DD29BB1FD24C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgoritmosLibrary", "AlgoritmosLibrary\AlgoritmosLibrary.csproj", "{8CEE65CE-AF07-4752-A8A9-DD29BB1FD24C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoicingLibrary", "InvoicingLibrary\InvoicingLibrary.csproj", "{426C2A84-26EE-4B9A-8535-8E30B1B2FDDF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoicingLibrary.Test", "InvoicingLibrary.Test\InvoicingLibrary.Test.csproj", "{533B7A10-1132-46B9-BB71-CD1D9751C32A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItemsDemoFactura", "ItemsDemoFactura\ItemsDemoFactura.csproj", "{7595F6B9-7F4B-4011-A5E6-21F016B950EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{533B7A10-1132-46B9-BB71-CD1D9751C32A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{533B7A10-1132-46B9-BB71-CD1D9751C32A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{533B7A10-1132-46B9-BB71-CD1D9751C32A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7595F6B9-7F4B-4011-A5E6-21F016B950EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7595F6B9-7F4B-4011-A5E6-21F016B950EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7595F6B9-7F4B-4011-A5E6-21F016B950EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7595F6B9-7F4B-4011-A5E6-21F016B950EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +91,7 @@ Global
 		{8CEE65CE-AF07-4752-A8A9-DD29BB1FD24C} = {E285251B-3DC1-4E9C-B2D9-2C296B9500BA}
 		{426C2A84-26EE-4B9A-8535-8E30B1B2FDDF} = {E285251B-3DC1-4E9C-B2D9-2C296B9500BA}
 		{533B7A10-1132-46B9-BB71-CD1D9751C32A} = {E285251B-3DC1-4E9C-B2D9-2C296B9500BA}
+		{7595F6B9-7F4B-4011-A5E6-21F016B950EE} = {E285251B-3DC1-4E9C-B2D9-2C296B9500BA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A83C3B11-6284-4DDA-B40C-DAC5DACBCB99}

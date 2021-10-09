@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Autenticacion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace DemoWebApiV1.Controllers
     public class LogUpController : ControllerBase
     {
         [HttpPost]
-        public IActionResult LogUp()
+        public IActionResult LogUp(Regustro regustro)
         {
             return Ok();
         }

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InvoicingLibrary\InvoicingLibrary.csproj" />
+    <ProjectReference Include="..\ItemsDemoFactura\ItemsDemoFactura.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 

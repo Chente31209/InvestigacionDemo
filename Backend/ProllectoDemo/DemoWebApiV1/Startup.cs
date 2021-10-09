@@ -19,6 +19,8 @@ namespace DemoWebApiV1
 {
     public class Startup
     {
+        private readonly string LocalPolicy = "LocalPolicy";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,7 +31,15 @@ namespace DemoWebApiV1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: LocalPolicy,
+                    bulder => {
+                        bulder.WithOrigins("http://localhost:8080")
+                            .AllowAnyMethod().AllowAnyHeader();
+                    });
+            });
+
             var key = "klslailiavegieufgeqrgpñiufweuqglig";
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddControllers()
@@ -87,6 +97,7 @@ namespace DemoWebApiV1
             {
                 endpoints.MapControllers();
             });
+            app.UseCors(LocalPolicy);
         }
     }
 }
