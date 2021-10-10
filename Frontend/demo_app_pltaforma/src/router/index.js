@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Factura from '../views/Factura.vue'
 import LogUp from '../views/LogUp'
 
+
 const routes = [
   {
     path: '/',
@@ -15,6 +16,13 @@ const routes = [
     name: 'About',
     component: function () {
       return import('../views/About.vue')
+    }
+  },
+  {
+    path: '/perfil',
+    name: 'Perfil',
+    component: function () {
+      return import('../views/perfil.vue')
     }
   },
   {
