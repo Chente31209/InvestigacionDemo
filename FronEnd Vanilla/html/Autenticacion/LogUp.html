@@ -29,7 +29,7 @@
               <!-- #end Barra De Navegacion -->
               <!-- #Regustro -->
         <div class="container">
-            <form @submit.prevent="LogUp">
+            <div>
                 <div class="row">
                     <div class="col">
                         <label >Nombre(s)</label>
@@ -47,31 +47,31 @@
                 <div class="row">
                     <div>
                         <label >Nombre De Usario</label>
-                        <input type="text" name="IdUsario" id="" class="form-control" v-model="nombreDeUsuario">
+                        <input type="text"  class="form-control" v-model="nombreDeUsuario">
                     </div>
                 </div>
                 <div class="row">
                     <div>
                         <label >Correo Electonico</label>
-                        <input type="email" name="email" class="form-control" v-model="e_Mail">
+                        <input type="email"  class="form-control" v-model="e_Mail">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
                         <label >Paswird</label>
-                        <input type="password" name="Pasword" id="" class="form-control" v-model="pasword">
+                        <input type="password"   class="form-control" v-model="pasword">
                     </div>
                     <div class="col">
                         <label >Confima Paswird</label>
-                        <input type="password" name="Pasword" id="" class="form-control" v-model="paswordCofirma">
+                        <input type="password"   class="form-control" v-model="paswordCofirma">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button type="submit" class="btn btn-primary">Reguistrse</button>
+                        <button  class="btn btn-primary">Reguistrse</button>
                     </div>
                 </div>
-            </form>
+            </div>
             <!-- #end Reguistro -->
     </div>
 
@@ -84,7 +84,13 @@
         var app = new Vue({
             el: '#app',
             data:{
-                Mensaje:"LogUp"
+                nombre:"",
+                primerApellido:"",
+                segundoApellido:"",
+                nombreDeUsuario:"",
+                pasword:"",
+                paswordCofirma:""
+
             },
             methods: {
 

@@ -1,0 +1,46 @@
+[
+    {
+      "id": 0,
+      "nombre": "string",
+      "e_Mail": "string",
+      "numeroDeTelefono": "string",
+      "fecaDeNacimento": "2021-10-22T14:19:13.574Z",
+      "id_organisacion": {
+        "id": 0,
+        "nombre": "string",
+        "giro": "string",
+        "decripcion": "string",
+        "claveInvitacion": "string",
+        "id_tipoDeOraganisacion": {
+          "id": 0,
+          "descripcion": "string"
+        }
+      },
+      "id_tipoDeCuenta": {
+        "id": 0,
+        "rolUsario": "string"
+      }
+    },
+    {
+        "id": 0,
+        "nombre": "string",
+        "e_Mail": "string",
+        "numeroDeTelefono": "string",
+        "fecaDeNacimento": "2021-10-22T14:19:13.574Z",
+        "id_organisacion": {
+          "id": 0,
+          "nombre": "string",
+          "giro": "string",
+          "decripcion": "string",
+          "claveInvitacion": "string",
+          "id_tipoDeOraganisacion": {
+            "id": 0,
+            "descripcion": "string"
+          }
+        },
+        "id_tipoDeCuenta": {
+          "id": 0,
+          "rolUsario": "string"
+        }
+      }
+  ]

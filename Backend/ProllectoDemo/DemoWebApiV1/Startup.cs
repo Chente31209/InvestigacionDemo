@@ -36,7 +36,7 @@ namespace DemoWebApiV1
             {
                 options.AddPolicy(name: LocalPolicy,
                     bulder => {
-                        bulder.WithOrigins("http://localhost:8080/", "http://192.168.1.65:8080/", "http://127.0.0.1:8080")
+                        bulder.WithOrigins("http://localhost:8080/", "http://192.168.1.65:8080/", "http://127.0.0.1:8080", "http://127.0.0.1:5500")
                             .AllowAnyMethod().AllowAnyHeader();
                     });
             });
