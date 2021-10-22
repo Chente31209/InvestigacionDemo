@@ -31,11 +31,12 @@ namespace DemoWebApiV1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           
             services.AddCors(options =>
             {
                 options.AddPolicy(name: LocalPolicy,
                     bulder => {
-                        bulder.WithOrigins("http://localhost:8080")
+                        bulder.WithOrigins("http://localhost:8080/", "http://192.168.1.65:8080/", "http://127.0.0.1:8080")
                             .AllowAnyMethod().AllowAnyHeader();
                     });
             });
@@ -88,6 +89,7 @@ namespace DemoWebApiV1
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DemoWebApiV1 v1"));
             }
+            app.UseCors(LocalPolicy);
 
             app.UseRouting();
 
@@ -97,7 +99,7 @@ namespace DemoWebApiV1
             {
                 endpoints.MapControllers();
             });
-            app.UseCors(LocalPolicy);
+            
         }
     }
 }

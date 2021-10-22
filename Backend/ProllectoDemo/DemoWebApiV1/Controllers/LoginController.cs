@@ -37,7 +37,7 @@ namespace DemoWebApiV1.Controllers
             
                 if ("Juan" == usuario.NombreDeUsuario)
                 {
-                    if ("Prueba123" == usuario.Password)
+                    if ("prueba123" == usuario.Password)
                         result = true;
                     else
                         result = false;
